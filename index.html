@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eesti raadiojaamade sagedused</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 20px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 12px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+        background-color: #f8f9fa;
+    }
+    tr:hover {
+        background-color: #e9ecef;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .select-city {
+        margin-bottom: 20px;
+    }
+    .select-city select {
+        padding: 5px;
+        font-size: 16px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        outline: none;
+        transition: border-color 0.2s;
+    }
+    .select-city select:hover {
+        border-color: #6c757d;
+    }
+    .select-city select:focus {
+        border-color: #007bff;
+    }
+    .select-city label {
+        font-size: 18px;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Eesti raadiojaamade sagedused</h2>
+    <div class="select-city">
+        <label for="cities">Vali linn:</label>
+        <select id="cities" onchange="showRadioStations()">
+            <option value="Tallinn">Tallinn</option>
+            <option value="Tartu">Tartu</option>
+            <option value="Pärnu">Pärnu</option>
+            <option value="Viljandi">Viljandi</option>
+            <option value="Kuressaare">Kuressaare</option>
+        </select>
+    </div>
+    <table id="radioStations">
+      <tr>
+        <th>Raadiojaam</th>
+        <th>Asukoht</th>
+        <th>Sagedus</th>
+      </tr>
+      <tr>
+        <td>Elmar</td>
+        <td>Tallinn</td>
+        <td>91,5</td>
+      </tr>
+      <tr>
+        <td>Jumor FM (venekeelne raadio)</td>
+        <td>Tallinn</td>
+        <td>104,9</td>
+      </tr>
+      <tr>
+        <td>Kiss FM</td>
+        <td>Tallinn</td>
+        <td>93,2</td>
+      </tr>
+      <tr>
+        <td>Klassikaraadio</td>
+        <td>Tallinn</td>
+        <td>106,6</td>
+      </tr>
+      <tr>
+        <td>Kuku Raadio</td>
+        <td>Tallinn</td>
+        <td>100,7</td>
+      </tr>
+      <tr>
+        <td>MyHits</td>
+        <td>Tallinn</td>
+        <td>97,2</td>
+      </tr>
+      <tr>
+        <td>Nõmme Raadio</td>
+        <td>Tallinn</td>
+        <td>99,3</td>
+      </tr>
+      <tr>
+        <td>Pereraadio</td>
+        <td>Tallinn</td>
+        <td>89,6</td>
+      </tr>
+      <tr>
+        <td>Power Hit Radio</td>
+        <td>Tallinn</td>
+        <td>102,1</td>
+      </tr>
+      <tr>
+        <td>Raadio 2</td>
+        <td>Tallinn</td>
+        <td>101,6</td>
+      </tr>
+      <tr>
+        <td>Raadio 4 (venekeelne raadio)</td>
+        <td>Tallinn</td>
+        <td>94,5</td>
+      </tr>
+      <tr>
+        <td>Raadio 7</td>
+        <td>Tallinn</td>
+        <td>103,1</td>
+      </tr>
+      <tr>
+        <td>Raadio Tallinn</td>
+        <td>Tallinn</td>
+        <td>103,5</td>
+      </tr>
+      <tr>
+        <td>Relax FM</td>
+        <td>Tallinn</td>
+        <td>88,3</td>
+      </tr>
+      <tr>
+        <td>Retro FM</td>
+        <td>Tallinn</td>
+        <td>97,8</td>
+      </tr>
+      <tr>
+        <td>Rock FM</td>
+        <td>Tallinn</td>
+        <td>88,8</td>
+      </tr>
+      <tr>
+        <td>Sky Plus</td>
+        <td>Tallinn</td>
+        <td>95,4</td>
+      </tr>
+      <tr>
+        <td>Sky Radio (venekeelne raadio)</td>
+        <td>Tallinn</td>
+        <td>98,4</td>
+      </tr>
+      <tr>
+        <td>Star FM</td>
+        <td>Tallinn</td>
+        <td>96,6</td>
+      </tr>
+      <tr>
+        <td>Star FM Eesti</td>
+        <td>Tallinn</td>
+        <td>95,8</td>
+      </tr>
+      <td>Star FM Plus (venekeelne raadio)</td>
+      <td>Tallinn</td>
+      <td>107,1</td>
+    </tr>
+    <td>Tre Raadio</td>
+    <td>Tallinn</td>
+    <td>105,8</td>
+  </tr>
+  <td>Vikerraadio</td>
+  <td>Tallinn</td>
+  <td>104,1</td>
+</tr>
+<td>Äripäeva Raadio</td>
+<td>Tallinn</td>
+<td>92,4</td>
+</tr>
+
+</tr>
+<td>Elmar</td>
+<td>Tartu</td>
+<td>88,5</td>
+</tr>
+</tr>
+<td>Jumor FM (venekeelne raadio)</td>
+<td>Tartu</td>
+<td>94,1</td>
+</tr>
+<td>Klassikaraadio</td>
+<td>Tartu</td>
+<td>90,3</td>
+</tr>
+</tr>
+<td>Kuku Raadio</td>
+<td>Tartu</td>
+<td>100,2</td>
+</tr>
+</tr>
+<td>MyHits</td>
+<td>Tartu</td>
+<td>97,2</td>
+</tr>
+</tr>
+<td>Pereraadio</td>
+<td>Tartu</td>
+<td>89,0</td>
+</tr>
+</tr>
+<td>Power Hit Radio</td>
+<td>Tartu</td>
+<td>89,7</td>
+</tr>
+</tr>
+<td>Raadio 2</td>
+<td>Tartu</td>
+<td>96,3</td>
+</tr>
+</tr>
+<td>Raadio 4 (venekeelne raadio)</td>
+<td>Tartu</td>
+<td>94,4</td>
+</tr>
+</tr>
+<td>Raadio 7</td>
+<td>Tartu</td>
+<td>92,1</td>
+</tr>
+</tr>
+<td>Relax FM</td>
+<td>Tartu</td>
+<td>103,0</td>
+</tr>
+</tr>
+<td>Retro FM</td>
+<td>Tartu</td>
+<td>98,6</td>
+</tr>
+</tr>
+<td>Rock FM</td>
+<td>Tartu</td>
+<td>104,2</td>
+</tr>
+</tr>
+<td>Sky Plus</td>
+<td>Tartu</td>
+<td>95,2</td>
+</tr>
+<td>Sky Radio (venekeelne raadio)</td>
+<td>Tartu</td>
+<td>107,2</td>
+</tr>
+</tr>
+<td>Star FM</td>
+<td>Tartu</td>
+<td>99,4</td>
+</tr>
+</tr>
+<td>Tre Raadio</td>
+<td>Tartu</td>
+<td>92,9</td>
+</tr>
+</tr>
+<td>Vikerraadio</td>
+<td>Tartu</td>
+<td>106,7</td>
+</tr>
+</tr>
+<td>Äripäeva Raadio</td>
+<td>Tartu</td>
+<td>97,7</td>
+</tr>
+
+<tr>
+  <td>Elmar</td>
+  <td>Pärnu</td>
+  <td>99,0</td>
+</tr>
+<tr>
+  <td>Klassikaraadio</td>
+  <td>Pärnu</td>
+  <td>107,3</td>
+</tr>
+<tr>
+  <td>Kuku Raadio</td>
+  <td>Pärnu</td>
+  <td>89,9</td>
+</tr>
+<tr>
+  <td>MyHits</td>
+  <td>Pärnu</td>
+  <td>91,0</td>
+</tr>
+<tr>
+  <td>Power Hit Radio</td>
+  <td>Pärnu</td>
+  <td>103,9</td>
+</tr>
+<tr>
+  <td>Raadio 2</td>
+  <td>Pärnu</td>
+  <td>102,3</td>
+</tr>
+<tr>
+  <td>Raadio 4 (venekeelne raadio)</td>
+  <td>Pärnu</td>
+  <td>94,8</td>
+</tr>
+<tr>
+  <td>Raadio 7</td>
+  <td>Pärnu</td>
+  <td>88,6</td>
+</tr>
+<tr>
+  <td>Relax FM</td>
+  <td>Pärnu</td>
+  <td>96,4</td>
+</tr>
+<tr>
+  <td>Retro FM</td>
+  <td>Pärnu</td>
+  <td>98,3</td>
+</tr>
+<tr>
+  <td>Rock FM</td>
+  <td>Pärnu</td>
+  <td>93,9</td>
+</tr>
+<tr>
+  <td>Sky Plus</td>
+  <td>Pärnu</td>
+  <td>96,8</td>
+</tr>
+<tr>
+  <td>Star FM</td>
+  <td>Pärnu</td>
+  <td>100,3</td>
+</tr>
+<tr>
+  <td>Tre Raadio</td>
+  <td>Pärnu</td>
+  <td>92,7</td>
+</tr>
+<tr>
+  <td>Vikerraadio</td>
+  <td>Pärnu</td>
+  <td>104,8</td>
+</tr>
+<tr>
+  <td>Äripäeva Raadio</td>
+  <td>Pärnu</td>
+  <td>91,9</td>
+</tr>
+
+<tr>
+  <td>Elmar</td>
+  <td>Viljandi</td>
+  <td>93,1</td>
+</tr>
+<tr>
+  <td>Klassikaraadio</td>
+  <td>Viljandi</td>
+  <td>90,5</td>
+</tr>
+<tr>
+  <td>Kuku Raadio</td>
+  <td>Viljandi</td>
+  <td>100,8</td>
+</tr>
+<tr>
+  <td>Power Hit Radio</td>
+  <td>Viljandi</td>
+  <td>105,4</td>
+</tr>
+<tr>
+  <td>Raadio 2</td>
+  <td>Viljandi</td>
+  <td>103,3</td>
+</tr>
+<tr>
+  <td>Raadio 4 (venekeelne raadio)</td>
+  <td>Viljandi</td>
+  <td>95,5</td>
+</tr>
+<tr>
+  <td>Relax FM</td>
+  <td>Viljandi</td>
+  <td>92,4</td>
+</tr>
+<tr>
+  <td>Retro FM</td>
+  <td>Viljandi</td>
+  <td>97,9</td>
+</tr>
+<tr>
+  <td>Ring FM</td>
+  <td>Viljandi</td>
+  <td>101,7</td>
+</tr>
+<tr>
+  <td>Rock FM</td>
+  <td>Viljandi</td>
+  <td>87,8</td>
+</tr>
+<tr>
+  <td>Sky Plus</td>
+  <td>Viljandi</td>
+  <td>99,7</td>
+</tr>
+<tr>
+  <td>Star FM</td>
+  <td>Viljandi</td>
+  <td>89,3</td>
+</tr>
+<tr>
+  <td>Vikerraadio</td>
+  <td>Viljandi</td>
+  <td>107,0</td>
+</tr>
+
+<tr>
+  <td>Elmar</td>
+  <td>Kuressaare</td>
+  <td>91,5</td>
+</tr>
+<tr>
+  <td>Klassikaraadio</td>
+  <td>Kuressaare</td>
+  <td>107,0</td>
+</tr>
+<tr>
+  <td>Kuku Raadio</td>
+  <td>Kuressaare</td>
+  <td>100,6</td>
+</tr>
+<tr>
+  <td>MyHits</td>
+  <td>Kuressaare</td>
+  <td>97,4</td>
+</tr>
+<tr>
+  <td>Pereraadio</td>
+  <td>Kuressaare</td>
+  <td>89,0</td>
+</tr>
+<tr>
+  <td>Raadio 2</td>
+  <td>Kuressaare</td>
+  <td>103,1</td>
+</tr>
+<tr>
+  <td>Raadio Kadi</td>
+  <td>Kuressaare</td>
+  <td>90,5</td>
+</tr>
+<tr>
+  <td>Relax FM</td>
+  <td>Kuressaare</td>
+  <td>92,6</td>
+</tr>
+<tr>
+  <td>Retro FM</td>
+  <td>Kuressaare</td>
+  <td>95,4</td>
+</tr>
+<tr>
+  <td>Rock FM</td>
+  <td>Kuressaare</td>
+  <td>107,5</td>
+</tr>
+<tr>
+  <td>Sky Plus</td>
+  <td>Kuressaare</td>
+  <td>96,3</td>
+</tr>
+<tr>
+  <td>Star FM</td>
+  <td>Kuressaare</td>
+  <td>93,3</td>
+</tr>
+<tr>
+  <td>Star FM Eesti</td>
+  <td>Kuressaare</td>
+  <td>102,5</td>
+</tr>
+<tr>
+  <td>Tre Raadio</td>
+  <td>Kuressaare</td>
+  <td>89,6</td>
+</tr>
+<tr>
+  <td>Vikerraadio</td>
+  <td>Kuressaare</td>
+  <td>105,6</td>
+</tr>
+<tr>
+  <td>Äripäeva Raadio</td>
+  <td>Kuressaare</td>
+  <td>101,7</td>
+</tr>
+    </table>
+</div>
+
+<script>
+    function showRadioStations() {
+        var selectedCity = document.getElementById("cities").value;
+        var rows = document.getElementById("radioStations").getElementsByTagName("tr");
+        for (var i = 1; i < rows.length; i++) {
+            var city = rows[i].getElementsByTagName("td")[1];
+            if (city.innerHTML === selectedCity) {
+                rows[i].style.display = "";
+            } else {
+                rows[i].style.display = "none";
+            }
+        }
+    }
+    // Kuvame esialgu ainult Tallinna raadiojaamad
+    showRadioStations();
+</script>
+
+</body>
+</html>
